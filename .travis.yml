@@ -13,8 +13,8 @@ before_install:
 before_script:
   - npm install
 script:
-  - ./gradlew clean build -i
   - ./node_modules/.bin/grunt
+  - ./gradlew build violationCommentsToGitHub -DGITHUB_PULLREQUESTID=$TRAVIS_PULL_REQUEST -DGITHUB_OAUTH2TOKEN=$GITHUB_OAUTH2TOKEN -i --stacktrace
 notifications:
   email: false
 
