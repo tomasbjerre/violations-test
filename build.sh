@@ -14,5 +14,9 @@ mkdir -p build/reports/lint
 #cppcheck --quiet --enable=all --force --inline-suppr --xml --xml-version=2 . 2> cppcheck-result.xml
 #cd ..
 
+#Cpplint
+mkdir -p build/reports/cpplint
+cpplint cpp/test.cpp > build/reports/cpplint/cpplint.txt 2>&1
+
 #Flake8
 flake8 python/project/file.py > build/flake8_2.txt
