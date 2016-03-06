@@ -4,9 +4,12 @@ package se.bjurr.violations.lib.example;
  * No ending dot
  */
 public class OtherClass {
- public static String CoNstANT = "yes";
+ public static String CoNstANT = "yes"; 
 
  public void myMethod() {
+  if (CoNstANT.equals("abc")) {
+
+  }
   if (CoNstANT.equals("abc")) {
 
   }

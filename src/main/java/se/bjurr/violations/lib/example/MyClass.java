@@ -9,6 +9,8 @@ public class MyClass {
   } else {
 
   }
+  if (a == null)
+   a.charAt(123);
   a.length();
  }
 
