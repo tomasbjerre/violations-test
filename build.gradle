@@ -16,15 +16,15 @@ repositories {
 
 checkstyle {
  ignoreFailures = true
- reportsDir = file('../violations-lib/src/test/resources/checkstyle')
+ //reportsDir = file('../violations-lib/src/test/resources/checkstyle')
 }
 
 findbugs {
  ignoreFailures = true
- reportsDir = file('../violations-lib/src/test/resources/findbugs')
+ //reportsDir = file('../violations-lib/src/test/resources/findbugs')
 }
 
 pmd {
  ignoreFailures = true
- reportsDir = file('../violations-lib/src/test/resources/pmd')
+ //reportsDir = file('../violations-lib/src/test/resources/pmd')
 }

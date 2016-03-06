@@ -8,3 +8,5 @@ bin
 temp
 .gradle
 node_modules
+u-boot
+.flac

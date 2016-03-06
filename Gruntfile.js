@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     "undef": true,
     "unused": true,
     reporter: 'jslint',
-    reporterOutput: '../violations-lib/src/test/resources/jshint/jshint.xml',
+    reporterOutput: 'build/reports/jshint/jshint.xml',
     force: true,
    },
   },
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
    options: {
     formatters: [
-      {id: 'csslint-xml', dest: '../violations-lib/src/test/resources/csslint/csslint.xml'}
+      {id: 'csslint-xml', dest: 'build/reports/csslint/csslint.xml'}
     ],
     force: true,
    },
