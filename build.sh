@@ -18,5 +18,13 @@ mkdir -p build/reports/lint
 mkdir -p build/reports/cpplint
 cpplint cpp/test.cpp > build/reports/cpplint/cpplint.txt 2>&1
 
+#xmllint
+mkdir -p build/reports/xmllint
+xmllint xml/myxml.xml xml/* > build/reports/xmllint/xmllint.txt 2>&1
+
 #Flake8
 flake8 python/project/file.py > build/flake8_2.txt
+
+#PerlCritic
+mkdir -p build/reports/perlcritic
+perlcritic --verbose 5 perl/example.pl --brutal > build/reports/perlcritic/perlcritic.txt 2>&1

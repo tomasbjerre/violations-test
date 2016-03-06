@@ -6,8 +6,10 @@ jdk:
   - oraclejdk7
 before_install:
   - sudo apt-get install cppcheck
+  - sudo apt-get install libperl-critic-perl
   - sudo pip install flake8
   - sudo pip install cpplint
+  - sudo apt-get install libxml2-utils #xmllint
 before_script:
   - npm install
 script:
