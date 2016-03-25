@@ -1,8 +1,58 @@
+  buildscript {
+    repositories {
+      mavenLocal()
+      mavenCentral()
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+    }
+    dependencies {
+      classpath "se.bjurr.violations:violation-comments-to-github-gradle-plugin:1.6"
+      classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.9'
+    }
+  }
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
+apply plugin: "se.bjurr.violations.violation-comments-to-github-gradle-plugin"
+apply plugin: "info.solidsoft.pitest"
+
+dependencies {
+ testCompile 'junit:junit:4.12'
+}
+
+pitest {
+    targetClasses = ['se.bjurr.*']
+    pitestVersion = "1.1.0"
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+}
+
+task violationCommentsToGitHub(type: se.bjurr.violations.comments.github.plugin.gradle.ViolationCommentsToGitHubTask) {
+ repositoryOwner = "tomasbjerre";
+ repositoryName = "violations-test"
+ pullRequestId = System.properties['GITHUB_PULLREQUESTID']
+ oAuth2Token = System.properties['GITHUB_OAUTH2TOKEN']
+ gitHubUrl = "https://api.github.com/"
+ createCommentWithAllSingleFileComments = false
+ createSingleFileComments = true
+ violations = [
+  ["FINDBUGS",   ".", ".*/findbugs/.*\\.xml\$"],
+  ["PMD",        ".", ".*/pmd/.*\\.xml\$"],
+  ["CHECKSTYLE", ".", ".*/checkstyle/.*\\.xml\$"],
+  ["JSHINT",     ".", ".*/jshint/.*\\.xml\$"],
+  ["CSSLINT",    ".", ".*/csslint/.*\\.xml\$"],
+  ["CPPCHECK",    ".", ".*/cppcheck/.*\\.xml\$"],
+  ["CPPLINT",    ".", ".*/cpplint/.*\\.txt\$"],
+  ["FLAKE8",    ".", ".*/flake8/.*\\.txt\$"],
+  ["JSHINT",    ".", ".*/jshint/.*\\.xml\$"],
+  ["PERLCRITIC",    ".", ".*/perlcritic/.*\\.txt\$"],
+  ["XMLLINT",    ".", ".*/xmllint/.*\\.txt\$"]
+ ]
+}
 
 group = 'se.bjurr.violations'
 
@@ -28,3 +78,5 @@ pmd {
  ignoreFailures = true
  //reportsDir = file('../violations-lib/src/test/resources/pmd')
 }
+
+build.dependsOn "pitest"
