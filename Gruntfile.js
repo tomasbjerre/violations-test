@@ -2,15 +2,15 @@
 
 module.exports = function(grunt) {
  grunt.initConfig({
-  eslint: {
-   options: {
-    configFile: 'eslint.json',
-    outputFile: 'build/reports/eslint/eslint.out',
-    format: 'checkstyle'
-   },
-   target: ['web/js-file.js',
-            'web/js-file2.js'],
-  },
+  //eslint: {
+  // options: {
+  //  configFile: 'eslint.json',
+  //  outputFile: 'build/reports/eslint/eslint.out',
+  //  format: 'checkstyle'
+  // },
+  // target: ['web/js-file.js',
+  //          'web/js-file2.js'],
+  //},
 
   jshint: {
    all: [
@@ -43,5 +43,5 @@ module.exports = function(grunt) {
 
  grunt.loadNpmTasks('grunt-contrib-jshint');
  grunt.loadNpmTasks('grunt-contrib-csslint');
- grunt.registerTask('default', ['jshint', 'csslint', 'eslint']);
+ grunt.registerTask('default', ['jshint', 'csslint']);//, 'eslint']);
 };
