@@ -7,3 +7,4 @@ asdasdasdasd
     next if $file->is_dir();
     print $file->stringify . "\n";
 }
+

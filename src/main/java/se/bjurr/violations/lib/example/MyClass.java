@@ -6,6 +6,7 @@ public class MyClass {
  void npe(String a, String b) {
   if (a == null) {
    System.out.println();
+   System.out.println();
   } else {
 
   }
@@ -30,6 +31,6 @@ public class MyClass {
 
  @Override
  public boolean equals(Object obj) {
-  return true;
+  return false;
  }
 }
