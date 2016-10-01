@@ -6,3 +6,5 @@ function funk(a,b) {
  if (c)
   return c;
 }
+
+alert("helloooo")

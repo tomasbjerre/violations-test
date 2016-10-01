@@ -2,7 +2,7 @@
 #Findbugs, Checkstyle, PMD
 ./gradlew clean build -i
 
-#JSHint, CSSLint
+#JSHint, CSSLint, ESLint
 npm install -v
 ./node_modules/.bin/grunt
 

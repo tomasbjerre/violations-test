@@ -13,8 +13,8 @@ before_install:
 before_script:
   - npm install
 script:
-  - ./gradlew clean build -i
   - ./node_modules/.bin/grunt
+  - ./gradlew clean build -i
 notifications:
   email: false
 
