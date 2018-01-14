@@ -9,6 +9,7 @@
     dependencies {
       classpath "se.bjurr.violations:violation-comments-to-github-gradle-plugin:1.6"
       classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.9'
+      classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.13'
     }
   }
 
@@ -19,6 +20,14 @@ apply plugin: 'findbugs'
 apply plugin: 'pmd'
 apply plugin: "se.bjurr.violations.violation-comments-to-github-gradle-plugin"
 apply plugin: "info.solidsoft.pitest"
+apply plugin: net.ltgt.gradle.errorprone.ErrorProneBasePlugin
+
+task googleErrorProne {
+  finalizedBy {
+    compileJava.toolChain net.ltgt.gradle.errorprone.ErrorProneToolChain.create(project)
+    compileJava
+  }
+}
 
 dependencies {
  testCompile 'junit:junit:4.12'

@@ -2,6 +2,8 @@
 #Findbugs, Checkstyle, PMD
 ./gradlew clean build -i
 
+./gradlew googleErrorProne > build/googleErrorProne.log 2>&1
+
 #JSHint, CSSLint, ESLint
 npm install -v
 ./node_modules/.bin/grunt
