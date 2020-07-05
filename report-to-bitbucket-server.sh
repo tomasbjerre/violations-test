@@ -5,5 +5,6 @@ npx violation-comments-to-bitbucket-server-command-line \
  -pk PROJ \
  -rs REPO \
  -prid 1 \
+ -create-single-file-comments-tasks true \
  -v "CHECKSTYLE" "." ".*checkstyle/main\.xml$" "Checkstyle" \
 
