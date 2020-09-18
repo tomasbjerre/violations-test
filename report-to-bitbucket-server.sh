@@ -23,7 +23,9 @@ npx violation-comments-to-bitbucket-server-command-line \
  -v "GENERIC" "." ".*eneric\.txt$" "Generic" \
  -comment-template "
 message: 
+\\\`\\\`\\\`
 {{{violation.message}}}
+\\\`\\\`\\\`
 "
 
 # -show-debug-info \
