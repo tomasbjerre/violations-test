@@ -16,13 +16,14 @@ npx violation-comments-to-bitbucket-server-command-line \
  -pk PROJ \
  -rs REPO \
  -prid 1 \
- -keep-old-comments true \
+ -keep-old-comments false \
  -create-single-file-comments false \
  -create-comment-with-all-single-file-comments true \
  -comment-only-changed-files false \
  -v "GENERIC" "." ".*eneric\.txt$" "Generic" \
  -comment-template "
-message: {{{violation.message}}}
+message: 
+{{{violation.message}}}
 "
 
 # -show-debug-info \
